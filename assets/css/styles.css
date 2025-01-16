@@ -37,6 +37,9 @@ nav a {
   padding: 0;
   display: inline; }
 
+.postTag:hover {
+  color: purple; }
+
 .postTitle {
   margin-bottom: 5px;
   padding: 0; }
@@ -46,3 +49,15 @@ nav a {
 
 .tagUL li {
   margin-bottom: 5px; }
+
+#blogBody {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5; }
+
+#blogBody h1 {
+  margin: 0;
+  padding: 0; }
