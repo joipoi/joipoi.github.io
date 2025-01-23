@@ -14,6 +14,8 @@
   
     <a href="/archive.html">Blog Archive</a>
   
+    <a href="/projects.html">Projects</a>
+  
 </nav>
     <div id="blogBody">
 <h1>Using the Slack API</h1>
@@ -42,9 +44,13 @@
   <li>Follow the step to create an app and generate a token.</li>
 </ul>
 
-<p>test if your token works by using curl(here you should use your own token) <strong>curl -d “token=xoxb-not-a-real-token-this-will-not-work” https://slack.com/api/auth.test</strong></p>
+<p>test if your token works by using curl(here you should use your own token)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="se">\-</span>d <span class="s2">"token=xoxb-not-a-real-token-this-will-not-work"</span> https://slack.com/api/auth.test
+</code></pre></div></div>
 
-<p>Send a curl request: <strong>curl -d “text=Hi I am a bot that can post messages to any public channel.” -d “channel=C123456” -H “Authorization: Bearer xoxb-not-a-real-token-this-will-not-work” -X POST https://slack.com/api/chat.postMessage</strong></p>
+<p>Send a curl request:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="se">\-</span>d <span class="s2">"text=Hi I am a bot that can post messages to any public channel."</span> <span class="se">\-</span>d <span class="s2">"channel=C123456"</span> <span class="se">\-</span>H <span class="s2">"Authorization: Bearer xoxb-not-a-real-token-this-will-not-work"</span> <span class="se">\-</span>X POST https://slack.com/api/chat.postMessage
+</code></pre></div></div>
 
 <p>On the last point you should change the channel to be the channel you want the message to be in. And again remember to use the token you generated and not “<strong>xoxb-not-a-real-token-this-will-not-work”.</strong></p>
 

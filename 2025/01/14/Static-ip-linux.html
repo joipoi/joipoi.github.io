@@ -14,6 +14,8 @@
   
     <a href="/archive.html">Blog Archive</a>
   
+    <a href="/projects.html">Projects</a>
+  
 </nav>
     <div id="blogBody">
 <h1>Configuring Static IP(Linux)</h1>
@@ -45,14 +47,16 @@
 
 <p>There are several different ways to do this since there are different software to control the network on linux. I will be using NetworkManager and nmcli.  Also I am using Debian.</p>
 
-<p>First write <br />
-<strong>nmcli conn show</strong><br />
-This will show you what network connections you currently have, find the one you want to change to static and remember the connection name.</p>
+<p>First write</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli conn show
+</code></pre></div></div>
+<p>This will show you what network connections you currently have, find the one you want to change to static and remember the connection name.</p>
 
-<p>Then you write these two lines:<br />
-<strong>nmcli connection modify &lt;connName&gt; ipv4.addresses 192.168.1.105</strong><br />
-<strong>nmcli connection modify &lt;connName&gt; ipv4.method manual</strong><br />
-Where connName is the name you saw earlier and 192.168.1.105 is an example of a ip address you could have. Make sure whatever ip you choose is available on your network.</p>
+<p>Then you write these two lines:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli connection modify <span class="se">\&lt;</span>connName<span class="se">\&gt;</span> ipv4.addresses 192.168.1.105
+nmcli connection modify <span class="se">\&lt;</span>connName<span class="se">\&gt;</span> ipv4.method manual  
+</code></pre></div></div>
+<p>Where connName is the name you saw earlier and 192.168.1.105 is an example of a ip address you could have. Make sure whatever ip you choose is available on your network.</p>
 
 <h2 id="setting-up-static-ipvia-router">Setting up static ip(via router)</h2>
 
