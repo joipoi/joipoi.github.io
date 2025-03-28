@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to Browser Extension Development</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+  
+    <a href="/">Home</a>
+  
+    <a href="/blog.html">Blog</a>
+  
+    <a href="/archive.html">Blog Archive</a>
+  
+    <a href="/game.html">Games</a>
+  
+    <a href="/projects.html">Projects</a>
+  
+</nav>
+    <div id="blogBody">
+<h1>Intro to Browser Extension Development</h1>
+<span class="postDate">23 Jan 2025</span>
+        <a class="postTag" href="/archive.html#javascript">
+            #javascript
+        </a>
+    
+        <a class="postTag" href="/archive.html#front-end">
+            #front-end
+        </a>
+    
+        <a class="postTag" href="/archive.html#html">
+            #html
+        </a>
+    <h2 id="intro">Intro</h2>
+
+<p>Making your own extensions for the web browser is something I think is very cool and is not that difficult. If you have a basic understanding of javascript you are almost there already.</p>
+
+<p>Here is a small list of things you could do with your own extension that I think is cool:</p>
+
+<ul>
+  <li>Inject javascript or css into a page</li>
+  <li>Add items to browser menus</li>
+  <li>Create a sidepanel with html</li>
+  <li>Display notifications</li>
+  <li>Redirect the user to another page</li>
+  <li>Connect keybinds to your code</li>
+  <li>Store data in the browser storage</li>
+</ul>
+
+<h2 id="chrome-vs-firefox">Chrome vs Firefox</h2>
+
+<p>I have tried making extensions for both Firefox and Chrome. I have noticed that they are very similar because they follow mostly the same API. If you make your extension for one of them, it will most likely work for the other. There might be small differences that you will have to adjust for though.</p>
+
+<h2 id="file-structure">File structure</h2>
+
+<p>When making a extension there is one mandatory file and many optional files. The mandatory file is called “manifest.json” and is what defines your extension. Here you will configure and define things about your extension.</p>
+
+<p>There are also optional files depending on what your extension will do, here are they(their names are not important, can be named anything):</p>
+
+<ul>
+  <li><strong>popup.html</strong> - This is what will display when someone clicks on the extension icon. Can also include CSS and Javascript.</li>
+  <li><strong>icon.png</strong> - You might want images for things in your extension like the icon</li>
+  <li><strong>content.js</strong> - this is what is called a content script which is code that you can inject into a page with some other code.</li>
+  <li><strong>background.js -</strong> This is what is called a service worker. Here is where most of the code that controls your extension</li>
+</ul>
+
+<h2 id="hello-world">Hello world</h2>
+
+<p>I will show you the code for a very simple hello world example, you can see a more detailed explanation in the link below.</p>
+
+<p>manifest.json:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello Extensions</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Base Level Extension</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">manifest_version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">default_popup</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello.html</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">default_icon</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello_extensions.png</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>hello.html:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello Extensions<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is a popup!</span><span class="dl">"</span><span class="p">)</span>
+<span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>For this you would want manifest.json, hello.html, and hello_extensions.png in the same folder. With this extension you should have an icon in your extension bar that you can click on.</p>
+
+<p>You could easily create a separate javascript file and link to it from your hello.html like you would normally.</p>
+
+<p>Read the section below “Testing your Extension” to see if this works for you.</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>Since your extension will run on the users page it might have access to sensitive data. Therefore you have to explicitly state what permissions your extension needs. The user will then get warned about this when they install your extension. You declare these in your manifest.json.</p>
+
+<p>Here is a list of some common permissions:</p>
+
+<ul>
+  <li>activeTab</li>
+  <li>storage</li>
+  <li>scripting</li>
+  <li>browsingData</li>
+  <li>cookies</li>
+  <li>notifications</li>
+  <li>tabs</li>
+</ul>
+
+<h2 id="testing-your-extension">Testing your extension</h2>
+
+<h3 id="chrome">Chrome</h3>
+
+<p>Go to chrome://extensions/ and in the top right corner turn on developer mode. After that click on “Load unpacked” on the left side. Now choose the folder that contains your extension.</p>
+
+<h3 id="firefox">Firefox</h3>
+
+<p>Go to about:debugging and click on “This Firefox”. Then click on “Load Temporary Add-on” and choose the folder that contains your extension.</p>
+
+<h2 id="extra-reading">Extra reading</h2>
+
+<p><a href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world">Guide: Hello World chrome extension</a></p>
+
+<p><a href="https://developer.chrome.com/docs/extensions/develop">A List of everything you can do with your extension</a></p>
+
+<p><a href="https://developer.chrome.com/docs/extensions/develop/concepts/service-workers">About Service Workers</a></p>
+
+<p><a href="https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts">About Content Scripts</a></p>
+
+<p><a href="https://developer.chrome.com/docs/extensions/samples">List of Extension examples with code</a></p>
+
+
+</div>
+</body>
+</html>

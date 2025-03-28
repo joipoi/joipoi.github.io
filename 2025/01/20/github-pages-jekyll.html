@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Github Pages and jekyll</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+  
+    <a href="/">Home</a>
+  
+    <a href="/blog.html">Blog</a>
+  
+    <a href="/archive.html">Blog Archive</a>
+  
+    <a href="/game.html">Games</a>
+  
+    <a href="/projects.html">Projects</a>
+  
+</nav>
+    <div id="blogBody">
+<h1>Github Pages and jekyll</h1>
+<span class="postDate">20 Jan 2025</span>
+        <a class="postTag" href="/archive.html#github">
+            #github
+        </a>
+    
+        <a class="postTag" href="/archive.html#front-end">
+            #front-end
+        </a>
+    
+        <a class="postTag" href="/archive.html#html">
+            #html
+        </a>
+    <h2 id="github-pages">Github Pages</h2>
+
+<h3 id="about">About</h3>
+
+<p>You probably already know what Github is but if you don’t that is still ok. You don’t need to know about Github or git to find use in this post.</p>
+
+<p>Github is a place where you can store files usually in combination with the version control system called Git. But the focus of this post is something they also offer called Github Pages.</p>
+
+<p>Github Pages lets you host static files on the internet for free. The only thing needed is having a github account which you can create for free. The one downside is that you can only host static files and no server.</p>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>Assuming you have a Github account, the next step is to create a repository. This is simple to do and you can look up how if you don’t know. This is where you will store the files for your project.</p>
+
+<p>Once on your repositories page, click on settings and then click on pages. Then under source choose “Deploy from a branch” and under branch select “main” and under folder select “root”(There are other ways to set this up but this is the easiest imo). Now you can save and after some waiting your site should be live.</p>
+
+<p>Try refreshing the page and it should tell you that your site is live and where you can find it. Your site will default to an index.html file so make sure to include one.</p>
+
+<h3 id="site-url">Site url</h3>
+
+<p>Your site url should be something like: <strong>https://&lt;username&gt;.github.io/&lt;repoName&gt;</strong><br />
+where username is your username and repoName is the name of your repository. There is an option to completely change the url if you already own a domain name.</p>
+
+<p>It is also possible to have your site be at <strong>https://&lt;username&gt;.github.io</strong> without the reponame. To do this you need to create a repository called:<br />
+<strong>username.github.io (for me joipoi.github.io)</strong><br />
+and then setup the pages from that repository like earlier.</p>
+
+<h2 id="jekyll">Jekyll</h2>
+
+<p>On the official Github Pages website they recommend you to use something called Jekyll to make your site. Jekyll is a way to take markdown or other format and give it a layout which then creates static pages. It is written in Ruby but I don’t think you need to learn a bunch of Ruby to use it.</p>
+
+<p>There is a great step-step guide that I followed which I linked below. Most of the work is setting up your files and project structure, not a lot of new coding syntax to learn. You do need to download ruby though which can feel like a lot.</p>
+
+<p>It is absolutely not a must to use Jekyll for Github pages but I tried it for my blog and found it nice and easy. I wanted it mostly because it is an easy way to convert markdown to static html.</p>
+
+<h2 id="extra-reading">Extra Reading</h2>
+
+<p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages Getting Started</a><br />
+<a href="https://pages.github.com/">Github Pages Homepage</a><br />
+<a href="https://jekyllrb.com/docs/step-by-step/01-setup/">Jekyll step-by-step</a></p>
+
+
+</div>
+</body>
+</html>
