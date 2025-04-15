@@ -15,6 +15,10 @@ a {
   text-decoration: none;
   color: #2563eb; }
 
+ul {
+  list-style-type: none;
+  padding: 0; }
+
 nav {
   background-color: #2d3748;
   display: flex;
@@ -66,9 +70,64 @@ nav a {
   color: #c2c3c4;
   font-size: 13px; }
 
-#leftDiv {
-  float: left;
-  margin-right: 50px; }
+/*INDEX.HTML STYLES */
+#indexCont {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 10px; }
 
-#rightDiv {
-  float: left; }
+.news {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  font-size: 15px; }
+
+.news h2 {
+  margin-top: 0;
+  color: #ffffff; }
+
+.news span {
+  display: block;
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 10px; }
+
+.news p {
+  line-height: 1.6; }
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px; }
+
+.skill {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 15px 20px;
+  text-align: center;
+  color: #fff;
+  width: 100px;
+  transition: transform 0.2s; }
+
+.skill:hover {
+  transform: scale(1.05);
+  border-color: #555; }
+
+.skill i {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  display: block; }
+
+.skill span {
+  display: block;
+  margin-top: 5px;
+  font-size: 1em; }
